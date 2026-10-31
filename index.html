@@ -7,6 +7,7 @@
   <meta name="description" content="CodeGrowth builds modern websites, custom software, CRM solutions and business automation for growing businesses.">
   <title>CodeGrowth | Build. Grow. Scale.</title>
 
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
@@ -400,6 +401,175 @@
         flex-direction: column;
       }
     }
+    /* PORTFOLIO SECTION */
+
+.portfolio {
+  background: #0c1423;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.project-card {
+  background: #101827;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.project-card:hover {
+  transform: translateY(-7px);
+  border-color: #6c8cff;
+}
+
+.project-image {
+  height: 190px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #1a3152, #162b36);
+  font-size: 55px;
+}
+
+.project-content {
+  padding: 23px;
+}
+
+.project-content h3 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.project-content p {
+  color: #a2aec1;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.project-tags span {
+  padding: 5px 9px;
+  border-radius: 5px;
+  background: #1c2940;
+  color: #a9c0ff;
+  font-size: 11px;
+}
+
+.project-status {
+  display: inline-block;
+  color: #39d6b0;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.project-link {
+  color: #8ba4ff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* PRICING SECTION */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.price-card {
+  background: #101827;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 15px;
+  padding: 28px;
+}
+
+.price-card.featured {
+  border-color: #6c8cff;
+}
+
+.price-card h3 {
+  margin-bottom: 12px;
+}
+
+.price {
+  font: 700 34px 'Space Grotesk';
+  margin: 18px 0;
+}
+
+.price-card p,
+.price-card li {
+  color: #a2aec1;
+  font-size: 14px;
+}
+
+.price-card ul {
+  list-style: none;
+  margin: 22px 0;
+}
+
+.price-card li {
+  margin: 12px 0;
+}
+
+.price-card li::before {
+  content: "✓ ";
+  color: #39d6b0;
+}
+
+/* CONTACT FORM */
+
+.lead-form {
+  max-width: 650px;
+  margin: 35px auto 0;
+  padding: 25px;
+  text-align: left;
+  background: #101827;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 14px;
+}
+
+.lead-form input,
+.lead-form select,
+.lead-form textarea {
+  width: 100%;
+  margin: 9px 0 18px;
+  padding: 14px;
+  background: #080d18;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 7px;
+  color: white;
+  font: inherit;
+}
+
+.lead-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.lead-form label {
+  font-size: 13px;
+  color: #dce5f4;
+}
+
+.lead-form button {
+  width: 100%;
+}
+
+@media(max-width: 800px) {
+  .portfolio-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 
@@ -498,6 +668,138 @@
         </div>
       </div>
     </section>
+    
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="tag">Our Work</span>
+      <h2>Featured <span class="gradient">Projects</span></h2>
+      <p>Practical digital solutions built with modern technology.</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <article class="project-card reveal">
+        <div class="project-image">📋</div>
+        <div class="project-content">
+          <span class="project-status">Demo Project</span>
+          <h3>Job Tracker</h3>
+          <p>
+            A job application management dashboard
+            to organize applications and track progress.
+          </p>
+          <div class="project-tags">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
+          </div>
+          <a href="#contact" class="project-link">
+            Discuss a Similar Project →
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-image">💬</div>
+        <div class="project-content">
+          <span class="project-status">Demo Project</span>
+          <h3>MERN Chat App</h3>
+          <p>
+            A messaging application with user
+            accounts and real-time communication.
+          </p>
+          <div class="project-tags">
+            <span>React</span>
+            <span>Express</span>
+            <span>Socket.io</span>
+          </div>
+          <a href="#contact" class="project-link">
+            Discuss a Similar Project →
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-image">📊</div>
+        <div class="project-content">
+          <span class="project-status">Demo Concept</span>
+          <h3>LeadFlow CRM</h3>
+          <p>
+            A business dashboard concept for managing
+            leads, follow-ups and customer records.
+          </p>
+          <div class="project-tags">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
+          </div>
+          <a href="#contact" class="project-link">
+            Discuss a Similar Project →
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="tag">Starting Packages</span>
+      <h2>Simple <span class="gradient">Pricing</span></h2>
+      <p>Final pricing depends on project requirements and scope.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <article class="price-card reveal">
+        <h3>Starter Website</h3>
+        <p>For individuals and small businesses.</p>
+        <div class="price">₹8,000+</div>
+        <ul>
+          <li>Responsive Website</li>
+          <li>Up to 5 Pages</li>
+          <li>Contact Section</li>
+          <li>Basic SEO Setup</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Get Started</a>
+      </article>
+
+      <article class="price-card featured reveal">
+        <span class="tag">Popular</span>
+        <h3>Business Website</h3>
+        <p>For growing businesses.</p>
+        <div class="price">₹15,000+</div>
+        <ul>
+          <li>Custom Website Design</li>
+          <li>Responsive Layout</li>
+          <li>Lead Generation Form</li>
+          <li>Basic SEO Setup</li>
+        </ul>
+        <a href="#contact" class="btn">Get Started</a>
+      </article>
+
+      <article class="price-card reveal">
+        <h3>Custom Software</h3>
+        <p>For businesses needing custom systems.</p>
+        <div class="price">₹20,000+</div>
+        <ul>
+          <li>Custom Dashboard</li>
+          <li>Database Integration</li>
+          <li>User Authentication</li>
+          <li>Project Based Features</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Get Started</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
 
     <!-- About -->
     <section class="about" id="about">
@@ -614,6 +916,42 @@
     </section>
   </main>
 
+<!-- LEAD FORM -->
+<form class="lead-form" id="leadForm">
+
+  <label for="clientName">Your Name</label>
+  <input id="clientName" type="text"
+    placeholder="Enter your name" required>
+
+  <label for="businessName">Business Name</label>
+  <input id="businessName" type="text"
+    placeholder="Enter business name" required>
+
+  <label for="clientEmail">Email Address</label>
+  <input id="clientEmail" type="email"
+    placeholder="Enter email" required>
+
+  <label for="service">Select Service</label>
+  <select id="service" required>
+    <option value="">Choose a service</option>
+    <option>Business Website</option>
+    <option>E-commerce Website</option>
+    <option>Custom Software</option>
+    <option>CRM Development</option>
+    <option>Automation</option>
+  </select>
+
+  <label for="requirement">Project Requirement</label>
+  <textarea id="requirement"
+    placeholder="Tell us about your project..."
+    required></textarea>
+
+  <button type="submit" class="btn">
+    Send Project Enquiry →
+  </button>
+
+</form>
+
   <!-- Footer -->
   <footer>
     <div class="container footer-inner">
@@ -660,6 +998,37 @@
     document.querySelectorAll(".reveal").forEach(element => {
       observer.observe(element);
     });
+    
+const leadForm = document.getElementById("leadForm");
+
+leadForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("clientName").value.trim();
+  const business = document.getElementById("businessName").value.trim();
+  const email = document.getElementById("clientEmail").value.trim();
+  const service = document.getElementById("service").value;
+  const requirement = document.getElementById("requirement").value.trim();
+
+  const message = `
+New CodeGrowth Enquiry
+
+Name: ${name}
+Business: ${business}
+Email: ${email}
+Service: ${service}
+Requirement: ${requirement}
+  `;
+
+  const whatsappNumber = "917081747815";
+
+  const whatsappURL =
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(whatsappURL, "_blank");
+});
+
   </script>
 
 </body>
