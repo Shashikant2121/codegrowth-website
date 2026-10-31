@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CodeGrowth builds modern websites, custom software, CRM solutions and business automation for growing businesses.">
+  <title>CodeGrowth | Build. Grow. Scale.</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #080d18;
+      --surface: #101827;
+      --surface2: #141f32;
+      --text: #f3f6fc;
+      --muted: #a2aec1;
+      --primary: #6c8cff;
+      --accent: #39d6b0;
+      --border: rgba(255,255,255,.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,13,24,.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font: 700 27px 'Space Grotesk', sans-serif;
+      letter-spacing: -1.5px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+      border: 1px solid var(--primary);
+      transition: .25s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(108,140,255,.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      color: white;
+      font-size: 26px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 110px 0 100px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(108,140,255,.18), transparent 55%);
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--accent);
+      border: 1px solid rgba(57,214,176,.25);
+      background: rgba(57,214,176,.07);
+      padding: 7px 15px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.15;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      max-width: 850px;
+      margin: auto;
+      letter-spacing: -3px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #8ba4ff, #39d6b0);
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 25px auto 32px;
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 48px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 5vw, 43px);
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 27px 22px;
+      border-radius: 14px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+    }
+
+    .card-icon {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .about {
+      background: #0c1423;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .about h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .feature {
+      margin: 14px 0;
+      color: #dce5f4;
+    }
+
+    .feature span {
+      color: var(--accent);
+      margin-right: 10px;
+    }
+
+    .about-box {
+      background: linear-gradient(140deg, #182b4b, #102d35);
+      border: 1px solid var(--border);
+      padding: 40px;
+      border-radius: 18px;
+    }
+
+    .about-box h3 {
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .about-box p {
+      margin: 0;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      padding: 25px;
+      border-left: 2px solid var(--primary);
+      background: var(--surface);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .step small {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .step h3 {
+      margin: 12px 0;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact {
+      background: #0c1423;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(30px, 5vw, 45px);
+      margin-bottom: 18px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin: 0 auto 28px;
+      max-width: 580px;
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: .7s;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width: 900px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width: 650px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: var(--surface);
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links .btn {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 85px 0 75px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .about h2 {
+        font-size: 34px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">Code<span>Growth</span></a>
+
+      <button class="menu-btn" id="menuBtn"
+        aria-label="Toggle navigation">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#contact" class="btn">Let's Talk</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="tag">Digital Solutions for Growing Businesses</span>
+
+        <h1>
+          Build Your Ideas Into
+          <span class="gradient">Digital Success.</span>
+        </h1>
+
+        <p>
+          We build modern websites, custom software and smart
+          digital solutions that help businesses work better
+          and grow faster.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Start Your Project →</a>
+          <a href="#services" class="btn btn-outline">Explore Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="tag">What We Do</span>
+          <h2>Our <span class="gradient">Services</span></h2>
+          <p>
+            Practical technology solutions designed
+            around your business needs.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card reveal">
+            <div class="card-icon">🌐</div>
+            <h3>Web Development</h3>
+            <p>
+              Responsive and modern websites that
+              present your business professionally.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">⚙️</div>
+            <h3>Custom Software</h3>
+            <p>
+              Web applications designed to solve
+              your specific business problems.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">📊</div>
+            <h3>CRM Solutions</h3>
+            <p>
+              Manage customers, leads, records
+              and business operations efficiently.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">🤖</div>
+            <h3>Automation</h3>
+            <p>
+              Reduce repetitive tasks with
+              practical business automation.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="reveal">
+          <span class="tag">Why CodeGrowth?</span>
+
+          <h2>
+            Technology That
+            <span class="gradient">Moves You Forward.</span>
+          </h2>
+
+          <p>
+            Every business has different challenges.
+            We focus on understanding your requirements
+            and building solutions that actually help.
+          </p>
+
+          <div class="feature">
+            <span>✓</span> Solutions based on your requirements
+          </div>
+
+          <div class="feature">
+            <span>✓</span> Responsive and modern design
+          </div>
+
+          <div class="feature">
+            <span>✓</span> Clear communication
+          </div>
+
+          <div class="feature">
+            <span>✓</span> Support after project delivery
+          </div>
+        </div>
+
+        <div class="about-box reveal">
+          <h3>Our Approach</h3>
+          <p>
+            We believe technology should make business
+            simpler, faster and more efficient.
+            From a simple website to a custom management
+            system, we focus on building useful solutions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="tag">How We Work</span>
+          <h2>Our Working <span class="gradient">Process</span></h2>
+          <p>
+            A simple and transparent process from
+            first discussion to final delivery.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="step reveal">
+            <small>STEP 01</small>
+            <h3>Understand</h3>
+            <p>
+              We discuss your requirements and
+              understand your business goals.
+            </p>
+          </div>
+
+          <div class="step reveal">
+            <small>STEP 02</small>
+            <h3>Build</h3>
+            <p>
+              We design, develop and test
+              your digital solution.
+            </p>
+          </div>
+
+          <div class="step reveal">
+            <small>STEP 03</small>
+            <h3>Deliver</h3>
+            <p>
+              We launch your project and
+              provide agreed support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container reveal">
+        <span class="tag">Let's Work Together</span>
+
+        <h2>
+          Have a Project in Mind?
+          <span class="gradient">Let's Build It.</span>
+        </h2>
+
+        <p>
+          Tell us about your idea or business requirement.
+          Let's discuss how we can help.
+        </p>
+
+        <a
+          href="https://wa.me/917081747815?text=Hello%20CodeGrowth%2C%20I%20want%20to%20discuss%20a%20project."
+          class="btn"
+          target="_blank"
+          rel="noopener noreferrer">
+          Contact Us on WhatsApp →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <a href="#" class="logo">Code<span>Growth</span></a>
+      <p>© <span id="year"></span> CodeGrowth. All rights reserved.</p>
+      <p>Build. Grow. Scale.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Navigation
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+
+      menuBtn.textContent =
+        navLinks.classList.contains("active") ? "✕" : "☰";
+    });
+
+    // Close mobile menu after clicking a link
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    // Dynamic Copyright Year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Scroll Reveal Animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+
+</body>
+</html>
